@@ -32,6 +32,11 @@ pipeline {
             mail to: 'patrik.marchingant.johansson@gmail.com',
                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                 body: "Something is wrong with ${env.BUILD_URL}"
-    }
+        }
+        success {
+            mail to: 'patrik.marchingant.johansson@gmail.com',
+                subject: "Pipeline successfully build: ${currentBuild.fullDisplayName}",
+                body: "Everything fine with ${env.BUILD_URL}"
+        }
 }
 }
